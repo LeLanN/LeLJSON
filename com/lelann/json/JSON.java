@@ -16,13 +16,13 @@ import com.lelann.json.utils.ReaderUtils;
  */
 public class JSON {
 	/**
-     * Load JSON from String
-     * 
-     * @param file
-     *            The JSON string
-     * 
-     * @return A new JSONObject
-     */
+	 * Load JSON from String
+	 * 
+	 * @param content
+	 *            The JSON string
+	 * 
+	 * @return A new JSONObject
+	 */
 	public static JSONObject loadFromString(String content){
 		JCharacter[] ca = new Reader(content).parse();
 		try {
@@ -33,13 +33,13 @@ public class JSON {
 		}
 	}
 	/**
-     * Load JSON from File
-     * 
-     * @param file
-     *            The JSON file
-     * 
-     * @return A new JSONObject
-     */
+	 * Load JSON from File
+	 * 
+	 * @param file
+	 *            The JSON file
+	 * 
+	 * @return A new JSONObject
+	 */
 	public static JSONObject load(File file){
 		String content = null;
 		try {

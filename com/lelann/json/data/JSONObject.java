@@ -65,7 +65,7 @@ public class JSONObject {
      * 
      * @param where
      *            The field name
-     * @parem what
+     * @param what
      * 			  The value
      */
 	public void set(String where, Object what){
