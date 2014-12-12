@@ -20,6 +20,7 @@ public class ReaderUtils {
 			if(c.equals("\"")){
 				if(!isEchap)
 					isString = !isString;
+				else isEchap = false;
 			} else if(c.equals("\\") && isString)
 				isEchap = !isEchap;
 			  else if(isString)

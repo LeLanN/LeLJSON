@@ -17,6 +17,11 @@ public class JSONArray {
 	private List<JSONArray> arrays = new ArrayList<JSONArray>();
 	private List<JSONObject> objects = new ArrayList<JSONObject>();
 	
+	/**
+	 * Load an array from a List
+	 * @param what
+	 * 		   The List
+	 */
 	public JSONArray(List<?> what){
 		for(Object o : what){
 			if(o instanceof Number){
@@ -40,6 +45,11 @@ public class JSONArray {
 			}
 		}
 	}
+	/**
+	 * Load an array from an Object[] (Array)
+	 * @param what
+	 * 		   The array
+	 */
 	public JSONArray(Object what){
 		if(what.getClass().isArray()){
 			for(Object o : convertToObjectArray(what)){
@@ -65,6 +75,11 @@ public class JSONArray {
 			}
 		}
 	}
+	/**
+	 * Load an array from a JCharacter Array
+	 * @param what
+	 * 		   The JCharacter
+	 */
 	public JSONArray(JCharacter[] datas) throws JSyntaxError{
 		boolean isString = false, isEchap = false;
 		String current = "";
@@ -148,9 +163,15 @@ public class JSONArray {
 			values.add(new JSONElement(current));
 		}
 	}
+	/**
+	 * Check if the JSONArray contains no values
+	 */
 	public boolean isEmpty(){
 		return values.isEmpty() && arrays.isEmpty() && objects.isEmpty();
 	}
+	/**
+	 *  Get a Boolean List. Default value is false
+	 */
 	public List<Boolean> getBooleanList(){
 		List<Boolean> result = new ArrayList<Boolean>();
 			for(final JSONElement je : values){
@@ -158,6 +179,9 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a Integer List. Default value is 0
+	 */
 	public List<Integer> getIntList(){
 		List<Integer> result = new ArrayList<Integer>();
 			for(final JSONElement je : values){
@@ -165,6 +189,9 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a Double List. Default value is 0
+	 */
 	public List<Double> getDoubleList(){
 		List<Double> result = new ArrayList<Double>();
 			for(final JSONElement je : values){
@@ -172,6 +199,9 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a Float List. Default value is 0
+	 */
 	public List<Float> getFloatList(){
 		List<Float> result = new ArrayList<Float>();
 			for(final JSONElement je : values){
@@ -179,6 +209,9 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a Short List. Default value is 0
+	 */
 	public List<Short> getShortList(){
 		List<Short> result = new ArrayList<Short>();
 			for(final JSONElement je : values){
@@ -186,6 +219,9 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a String List
+	 */
 	public List<String> getStringList(){
 		List<String> result = new ArrayList<String>();
 			for(final JSONElement je : values){
@@ -193,12 +229,21 @@ public class JSONArray {
 			}
 		return result;
 	}
+	/**
+	 *  Get a JSONArray List
+	 */
 	public List<JSONArray> getArrayList(){
 		return arrays;
 	}
+	/**
+	 *  Get a JSONObject List
+	 */
 	public List<JSONObject> getObjectList(){
 		return objects;
 	}
+	/**
+	 *  Get a Object List, with all values
+	 */
 	public List<Object> getList(){
 		List<Object> result = new ArrayList<Object>();
 			result.addAll(arrays);
@@ -206,7 +251,9 @@ public class JSONArray {
 			result.addAll(values);
 		return result;
 	}
-	
+	/**
+	 * Useless for the user : the API use it to save Arrays as File
+	 */
 	public String getArray(int incremente){
 		String inc = "", result = "";
 		for(int i=0;i<incremente;i++){
@@ -232,7 +279,9 @@ public class JSONArray {
 		return result;
 	}
 	
-	
+	/**
+	 * Useless for the user : the API use it to load JSONArray from Array
+	 */
 	public static Object[] convertToObjectArray(Object array) {
 	    Class<?> ofArray = array.getClass().getComponentType();
 	    if (ofArray.isPrimitive()) {
@@ -247,6 +296,9 @@ public class JSONArray {
 	        return (Object[]) array;
 	    }
 	}
+	/**
+	 * Return the object without space, \n, \t, ...
+	 */
 	@Override
 	public String toString(){
 		String result = "";

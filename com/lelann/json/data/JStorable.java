@@ -8,4 +8,10 @@ public interface JStorable {
 	 * Return the Object as an JSONObject
 	 */
 	public JSONObject save();
+	/**
+	 * Load the Object from a JSONObject
+	 * @param obj
+	 * 		The JSONObject
+	 */
+	public void load(JSONObject obj);
 }

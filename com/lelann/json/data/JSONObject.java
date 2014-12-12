@@ -380,8 +380,12 @@ public class JSONObject {
 		String[] objects = s.split("\\.");
 		JSONObject o = this;
 		for(int i=0;i<objects.length -1;i++){
-			o = o.objects.get(objects[i]);
-			if(o == null) o = JSON.loadFromString("{}");
+			JSONObject newO = o.objects.get(objects[i]);
+			if(newO == null) {
+				newO = JSON.loadFromString("{}");
+				o.set(objects[i], newO);
+			}
+			o = newO;
 		}
 		
 		return o;

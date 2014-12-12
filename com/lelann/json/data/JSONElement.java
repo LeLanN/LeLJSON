@@ -21,7 +21,7 @@ public class JSONElement {
 		} catch(Exception e){
 			numberValue = 0.0;
 		}
-		stringValue = value;
+		stringValue = value.replace("\\\"", "\"");
 		try {
 			boolValue = Boolean.parseBoolean(value);
 		} catch(Exception e){
@@ -37,7 +37,7 @@ public class JSONElement {
 			numberValue = Double.parseDouble(stringValue);
 			return stringValue;
 		} catch(Exception e){
-			return "\"" + stringValue + "\"";
+			return "\"" + stringValue.replace("\"", "\\\"") + "\"";
 		}
 	}
 	/**
