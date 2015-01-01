@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class Reader  implements Iterator<String>{
 	private int line = 1, column = 0, cursor = 0;
 	private char[] content;
-	private boolean isString = false, isEchap = false, isOpen = false;
+	private boolean isString = false, isEchap = false;
 	
 	public int getCursor(){
 		return this.cursor;
@@ -47,9 +47,6 @@ public class Reader  implements Iterator<String>{
 				isCharacFinded = true;
 			}
 			cursor++;
-			
-			if(!charac.equals("{") && !isOpen) isCharacFinded = false;
-			else isOpen = true;
 		}
 		return charac;
 	}
